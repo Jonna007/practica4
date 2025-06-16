@@ -62,10 +62,14 @@ Comandos importantes usados:
 `docker -v`  
 `docker pull postgres`
 
+![image](https://github.com/user-attachments/assets/e0819937-4180-48cf-896c-243e51067264)
+
+
 **Paso 2:** Crear contenedor PostgreSQL  
 ```bash
 docker run -d --name dbsql -e POSTGRES_PASSWORD=1611 -p 5432:5432 postgres
 ```
+![image](https://github.com/user-attachments/assets/ffe1a0b3-7489-4eca-939b-02f5452ec6f4)
 
 **Paso 3:** Crear contenedor pgAdmin  
 ```bash
@@ -75,27 +79,35 @@ docker run -d --name pgadmin -p 8090:80 \
 dpage/pgadmin4
 ```
 
+![image](https://github.com/user-attachments/assets/ce6073e1-cec6-4844-94a7-ea7dfd37a63c)
+
 **Paso 4:** Crear red personalizada  
 ```bash
-docker network create --attachable redleo
+docker network create --attachable redjonna
 ```
+![image](https://github.com/user-attachments/assets/ed2622ac-e535-4758-b7b9-81108bb8ca3b)
+
 
 **Paso 5:** Conectar contenedores a la red  
 ```bash
-docker network connect redleo dbsql
-docker network connect redleo pgadmin
+docker network connect redjonna dbsql
+docker network connect redjonna pgadmin
 ```
+![image](https://github.com/user-attachments/assets/70004238-5839-489d-a9af-000f3fe41bdf)
+![image](https://github.com/user-attachments/assets/4fda848e-cd16-4da9-b005-d62d21155f89)
 
 **Paso 6:** Verificar conectividad  
 ```bash
-docker inspect redleo
+docker inspect redjonna
 ```
+![image](https://github.com/user-attachments/assets/be02d2b0-e954-473e-8860-c745c6742bb0)
 
 **Paso 7:** Acceder a pgAdmin en navegador  
 URL: `http://localhost:8090`  
 Login:  
 - Email: `jjcadme@sudamericano.edu.ec`  
 - Contraseña: `1611`
+![image](https://github.com/user-attachments/assets/b3348e27-7830-4131-868e-535d629c8787)
 
 **Paso 8:** Crear base de datos desde pgAdmin  
 - Agregar nuevo servidor.
@@ -104,6 +116,9 @@ Login:
 - Usuario: `postgres`
 - Contraseña: `1611`
 - Crear base de datos `appweb` desde la interfaz.
+![image](https://github.com/user-attachments/assets/76b139ba-ea3e-4b8e-af9f-2e1e1e666956)
+![image](https://github.com/user-attachments/assets/3e384acd-d575-425b-9fe5-d1500c76079f)
+![image](https://github.com/user-attachments/assets/0eb3dff5-d203-4e2f-a49e-bb35bef1eb94)
 
 ## 9. Resultados esperados
 
